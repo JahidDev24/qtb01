@@ -1,54 +1,47 @@
-import Image from "next/image";
-import Acmerop from "@/assets/images/avatar-florence-shaw.jpg"
-import { Spotlight } from "@/components/ui/Spotlight";
 import React from 'react'
-import { SparklesPreview } from "@/components/SparklePriview";
+import MaxWidthWrapper from "@/components/global/max-width-wrapper";
+import AnimationContainer from "@/components/global/animation-container";
+import { ArrowRightIcon } from "lucide-react";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { LampContainer } from "@/components/ui/lamp";
+import { motion } from "motion/react";
+import Feturesection from './Feature_section';
 
 export default function Hero() {
- 
 
+    {/* Hero Section */ }
     return (
-        <div className="py-32 md:py-48 lg:py-60">
-            <Spotlight
-                className='-top-40 -left-10 md:-left-32 md:-top-20 h-screen'
-                fill='pink'
-            />
-            <Spotlight
-                className="h-[80vh] w-[50vw] top-10 left-full"
-                fill="purple"
-            /> 
-            <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
-            <div>
-                <SparklesPreview/>
-                
+
+        <MaxWidthWrapper>
+            <div className="flex flex-col items-center justify-center w-full text-center bg-gradient-to-t from-background">
+                <AnimationContainer className="flex flex-col items-center justify-center w-full text-center">
+                    <h1 className="text-foreground mt-8 text-center py-6 text-5xl font-medium tracking-normal text-balance sm:text-6xl md:text-7xl lg:text-8xl !leading-[1.15] w-full font-heading">
+                        We Create Dream Into <span className="text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text inline-bloc">
+                            Reality
+                        </span>
+                    </h1>
+                    <p className="mb-12 text-sm tracking-tight text-muted-foreground md:text-xl text-balance">
+                        As a provider of innovative and high-quality products and services in the information technology and application development industry. Quantechbit offers a wide range of services that are tailored to meet the unique needs of our clients.
+                        <br className="hidden md:block" />
+                        {/* <span className="hidden md:block sm:text-3xl md:text-3xl lg:text-sm"></span> */}
+                    </p>
+
+                    <button className="group relative grid overflow-hidden rounded-full px-4 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200">
+                        <span>
+                            <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
+                        </span>
+                        <span className="backdrop absolute inset-[1px] rounded-full bg-neutral-950 transition-colors duration-200 group-hover:bg-neutral-900" />
+                        <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-primary/20"></span>
+                        <span className="z-10 py-0.5 text-sm text-neutral-100 flex items-center justify-center gap-1">
+                            ✨ Let&apos;s Connect
+                            <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+                        </span>
+                    </button>
+                  
+                </AnimationContainer>
             </div>
-            <div className="container">
+         
+        </MaxWidthWrapper >   
 
-                <div className="flex flex-col items-center">
-                    <Image src={Acmerop} alt={"tag"} className="size-[100px]" />
-                    <div className=" bg-gray-900 border border-gray-800 px-4 inline-flex items-center gap-4 rounded-lg">
-                        <div className="bg-blue-700 size-2.5 rounded-full"></div>
-                        <div className="text-sm font-medium">Avialable for new projects</div>
-
-                    </div >
-                    <div className="max-w-lg mx-auto">
-                        <h1 className="font-serif text-3xl md:5xl text-center mt-8 tracking-wide">Building a creative world with executing your idea's into reality</h1>
-                        <p className="text-center mt-4 text-white/60 md:text-lg">Don't know where to start be help them to grow your bussiness to the next level</p>
-                    </div>
-                    <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-                        <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-lg">
-                            <span className="font-semibold"> Explore our work ⬇️</span>
-
-                        </button>
-                        <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 rounded-lg px-6 h-12">
-                            <span>👋</span>
-                            <span className="font-semibold text-black"> Let's connect</span>
-
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>);
-
-
+    )
 }

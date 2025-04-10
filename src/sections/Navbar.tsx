@@ -8,7 +8,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-    return (<section className="py-4">
+    return (
+    <section className="py-4">
         <div className="container content-center">
 
             <div className="grid grid-cols-2  p-2 px-4 items-center justify-center ">

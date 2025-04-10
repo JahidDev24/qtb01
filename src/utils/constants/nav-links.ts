@@ -1,10 +1,10 @@
-import { HelpCircleIcon, LineChartIcon, Link2Icon, LockIcon, NewspaperIcon, QrCodeIcon } from "lucide-react";
+// import { HelpCircleIcon, LineChartIcon, Link2Icon, LockIcon, NewspaperIcon, QrCodeIcon } from "lucide-react";
 
 export const NAV_LINKS = [
     {
         title: "Features",
-        href: "/features",
-        menu: [
+        href: "/features"
+        // menu: [
             // {
             //     title: "Link Shortening",
             //     tagline: "Shorten links and track their performance.",
@@ -29,7 +29,7 @@ export const NAV_LINKS = [
             //     href: "/features/qr-codes",
             //     icon: QrCodeIcon,
             // },
-        ],
+        // ],
     },
     {
         title: "Pricing",
@@ -41,21 +41,21 @@ export const NAV_LINKS = [
     },
     {
         title: "Resources",
-        href: "/resources",
-        menu: [
-            // {
-            //     title: "Blog",
-            //     tagline: "Read articles on the latest trends in tech.",
-            //     href: "/resources/blog",
-            //     icon: NewspaperIcon,
-            // },
-            // {
-            //     title: "Help",
-            //     tagline: "Get answers to your questions.",
-            //     href: "/resources/help",
-            //     icon: HelpCircleIcon,
-            // },
-        ]
+        href: "/resources"
+        // menu: [
+        //     // {
+        //     //     title: "Blog",
+        //     //     tagline: "Read articles on the latest trends in tech.",
+        //     //     href: "/resources/blog",
+        //     //     icon: NewspaperIcon,
+        //     // },
+        //     // {
+        //     //     title: "Help",
+        //     //     tagline: "Get answers to your questions.",
+        //     //     href: "/resources/help",
+        //     //     icon: HelpCircleIcon,
+        //     // },
+        // ]
     },
     {
         title: "Changelog",

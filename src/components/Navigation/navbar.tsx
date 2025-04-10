@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn, NAV_LINKS } from "@/utils";
 // import { useClerk } from "@clerk/nextjs";
-import { LucideIcon, ZapIcon } from "lucide-react";
+// import { LucideIcon, ZapIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from 'react';
 import MaxWidthWrapper from "../global/max-width-wrapper";
@@ -45,14 +45,13 @@ const Navbar = () => {
             scroll && "border-background/80 bg-background/40 backdrop-blur-md"
         )}>
             <AnimationContainer reverse delay={0.1} className="size-full">
-                <MaxWidthWrapper className="flex items-stretch justify-between">
-                    <div className="flex items-center space-x-20">
-                        <Link href="/#home">
-                            <span className="text-xl font-bold font-heading !leading-none">
+                <MaxWidthWrapper className="flex items-center">
+                    <div className="size-full flex justify-between items-center">
+                        <Link href="/#home" className="text-center">
+                            <span className="text-xl align-bottom font-bold font-heading !leading-none">
                                 Quantechbit
                             </span>
                         </Link>
-
                         <NavigationMenu className="hidden lg:flex">
                             <NavigationMenuList>
                                 {NAV_LINKS.map((link) => (

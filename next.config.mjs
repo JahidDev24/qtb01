@@ -8,4 +8,14 @@ export default {
     });
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "quantechbit.com",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
+  },
 };

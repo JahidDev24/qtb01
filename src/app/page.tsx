@@ -1,19 +1,28 @@
 import AboutSection from "@/sections/AboutSection";
+import { ContactForm } from "@/sections/ContactForm";
+import Feturesection from "@/sections/Feature_section";
+
 import Hero from "@/sections/Hero";
-import Navbar from "@/components/Navigation/navbar";
-import StarsCanvas from "@/sections/StarBackground";
+import { ProjectSection } from "@/sections/ProjectSection";
+// import Navbar from "@/components/Navigation/navbar";
+// import StarsCanvas from "@/sections/StarBackground";
 import TapeSection from "@/sections/Tapeview";
 import Testomorieal from "@/sections/Testomorieal";
 
 export default function Home() {
+    return (
 
-
-    return (<main className="relative Obg-black flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-        <StarsCanvas />
-        <Navbar />
+    <main className="rmt-20 mx-auto w-full z-0 relative">
+      <div className="overflow-x-hidden scrollbar-hide size-full">
+         {/* <Navbar /> */}
         <Hero />
+        <Feturesection/>
         <TapeSection />
+        <ProjectSection/>    
         <Testomorieal/>
+        <ContactForm/>
         <AboutSection/>
+      </div>
+       
     </main>);
 }
