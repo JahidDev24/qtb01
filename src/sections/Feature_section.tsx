@@ -6,6 +6,7 @@ import AnimationContainer2 from "@/components/global/animation-container2";
 import { ParallaxScroll } from "@/components/ui/Parallex-scroll";
 import { FunctionComponent } from "react";
 import Skills from "@/components/Skills";
+import { FeaturesSectionDemo } from "@/components/Feature_Section_One";
 // import { motion } from "framer-motion";
 
 
@@ -26,7 +27,7 @@ export default function Feturesection() {
           <BorderBeam size={250} duration={12} delay={9} />
 
           <ParallaxScroll className="bg-transparent rounded-2xl shadow-md ">
-            {[<Skills key ={0}/>, <FeatureOne key={1} />]}
+            {[<Skills key ={0}/>, <FeatureOne key={1}/> ,<FeaturesSectionDemo key={3}/> ]}
           </ParallaxScroll>
 
 

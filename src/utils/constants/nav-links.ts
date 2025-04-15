@@ -32,12 +32,12 @@ export const NAV_LINKS = [
         // ],
     },
     {
-        title: "Pricing",
-        href: "/pricing",
+        title: "about Us",
+        href: "/Features",
     },
     {
-        title: "Enterprise",
-        href: "/enterprise",
+        title: "Blogs",
+        href: "/Blogs",
     },
     {
         title: "Resources",
@@ -58,7 +58,7 @@ export const NAV_LINKS = [
         // ]
     },
     {
-        title: "Changelog",
+        title: "Connect US",
         href: "/changelog",
     },
 ];
