@@ -7,26 +7,25 @@ import { LampContainer } from "@/components/ui/lamp";
 import { motion } from "motion/react";
 import Feturesection from './Feature_section';
 import { Spotlight } from '@/components/ui/Spotlight';
-import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect';
+import { ContainerTextFlip } from '@/components/ui/typewriter-effect';
+
+
 
 export default function Hero() {
     const words = [
         {
-          text: "We",
+          text: "Mobile Applications",
+          text2: "Wrap Speed"
         },
         {
-          text: "Create",
+          text: "Websites",
+           text2: "Minimal Cost"
         },
         {
-          text: "Dream",
+          text: "AI System",
+           text2: "With Expert Hand"
         },
-        {
-          text: "Into",
-        },
-        {
-          text: "Reality.",
-          className: "text-blue-500 dark:text-blue-500",
-        },
+       
       ];
     return (
         <MaxWidthWrapper className="relative w-screen h-screen">
@@ -36,14 +35,22 @@ export default function Hero() {
             />
             <div className="flex flex-col justify-between items-center w-full h-full text-center bg-gradient-to-t from-background py-12">
                 <div /> {/* Spacer or Logo if needed */}
-              <AnimationContainer className="flex flex-col items-center justify-center w-full text-center px-4"> 
+            <AnimationContainer className="flex flex-col items-center justify-center w-full text-center px-4" delay={2}> 
                  
-                    <TypewriterEffectSmooth words={words} className="text-foreground text-center py-6 text-5xl font-medium tracking-normal text-balance sm:text-6xl md:text-7xl lg:text-8xl !leading-[1.15] font-heading" />
-                       
-                    <p className="mt-4 text-sm tracking-tight text-muted-foreground md:text-xl text-balance max-w-4xl">
+              <h1 className="relative before:absolute before:inset-0 before:animate-typewriter text-foreground mt-8 text-center py-6 text-5xl font-medium tracking-normal text-balance sm:text-6xl md:text-7xl lg:text-8xl !leading-[1.15] w-full font-heading">
+                         We Create Dream Into <span className="text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text inline-bloc">
+                        Reality
+                         </span>
+                     </h1>
+           </AnimationContainer>   
+           {/* <AnimationContainer className="flex flex-col items-center justify-center w-full text-center px-4" delay={3}> 
+                 <h3 className="text-foreground mt-8 text-center py-6 text-2xl font-medium tracking-normal text-balance sm:text-4xl md:text-3xl lg:text-3xl !leading-[1.15] w-full font-mono">
+                            Build World Class <ContainerTextFlip words={words.map((e) => e.text)}/> at <ContainerTextFlip words={words.map((e) => e.text2)}/> 
+                        </h3>
+              </AnimationContainer>  */}
+           <p className="mt-4 text-sm tracking-tight text-muted-foreground md:text-xl text-balance max-w-4xl">
                         As a provider of innovative and high-quality products and services in the information technology and application development industry. Quantechbit offers a wide range of services that are tailored to meet the unique needs of our clients.
                     </p>
-           </AnimationContainer> 
                 <div className="mb-4">
                     <button className="group relative grid overflow-hidden rounded-full px-4 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200">
                         <span>

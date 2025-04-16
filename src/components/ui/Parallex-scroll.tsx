@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { useScroll, useTransform } from "framer-motion";
-import { useRef, useMemo } from "react";
-import { motion } from "framer-motion";
+
+import { useScroll, useTransform, motion } from "framer-motion";
+import React, { useRef, useMemo } from "react";
 import { cn } from "@/lib/util";
 
 interface ParallaxScrollProps {
@@ -17,16 +18,21 @@ export const ParallaxScroll = ({ children, className }: ParallaxScrollProps) => 
     offset: ["start start", "end start"],
   });
 
-  // Generate random transform direction and range for each child
-  const transforms = useMemo(() => {
+  // Random axis + amount for each child
+  const randomConfigs = useMemo(() => {
     return children.map(() => {
       const axis = Math.random() > 0.5 ? "x" : "y";
-      const amount = Math.floor(Math.random() * 200 + 100); // random 100–300 px
-      const range = [0, 1];
-      const output = [0, axis === "x" ? amount : -amount];
-      return { axis, transform: useTransform(scrollYProgress, range, output) };
+      const amount = Math.floor(Math.random() * 200 + 100); // 100–300px
+      return { axis, amount };
     });
-  }, [children.length]);
+  }, [children]);
+
+  // Call useTransform at top level, one for each child
+  const transforms = randomConfigs.map(({ axis, amount }) => {
+    const output = [0, axis === "x" ? amount : -amount];
+    const transform = useTransform(scrollYProgress, [0, 1], output);
+    return { axis, transform };
+  });
 
   return (
     <div
@@ -39,10 +45,12 @@ export const ParallaxScroll = ({ children, className }: ParallaxScrollProps) => 
       <div className="max-w-5xl mx-auto gap-1 py-10 px-5">
         {children.map((child, idx) => {
           const { axis, transform } = transforms[idx];
-          const style = axis === "x" ? { x: transform } : { y: transform };
 
           return (
-            <motion.div style={style} key={`parallax-${idx}`}>
+            <motion.div
+              key={`parallax-${idx}`}
+              {...(axis === "x" ? { style: { x: transform } } : { style: { y: transform } })}
+            >
               {child}
             </motion.div>
           );

@@ -1,21 +1,75 @@
 
 "use client";
-import React from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/util";
-
 import { World } from "@/components/ui/globe";
-import MaxWidthWrapper from "@/components/global/max-width-wrapper";
-import AnimationContainer from "@/components/global/animation-container";
-import { Textarea } from "@/components/ui/textarea";
-import { Icon, Mail, PhoneCall } from "lucide-react";
 const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+import React, { useState } from "react";
+import { Mail, PhoneCall } from "lucide-react";
+import AnimationContainer from "@/components/global/animation-container";
+import MaxWidthWrapper from "@/components/global/max-width-wrapper";
+import {Label} from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+
 export function ContactForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    number: "",
+    message: "",
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+
+  const validateForm = () => {
+    const { firstname, lastname, email, number, message } = formData;
+    if (!firstname || !lastname || !email || !number || !message) {
+      return "All fields are required.";
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      return "Invalid email address.";
+    }
+    if (!/^[0-9]{10,15}$/.test(number)) {
+      return "Invalid phone number.";
+    }
+    return "";
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      alert(validationError); // You can use a custom dialog here
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Message sent successfully!");
+        setFormData({ firstname: "", lastname: "", email: "", number: "", message: "" });
+      } else {
+        alert("Something went wrong.");
+      }
+    } catch (err) {
+      alert("Error sending email. "+ err);
+    }
+  };
+
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -39,75 +93,72 @@ export function ContactForm() {
     autoRotateSpeed: 0.5,
   };
 
-  return ( 
-<AnimationContainer delay={0.1}>
-  <MaxWidthWrapper className="size-full py-10 flex items-center">
-    <div className="flex align-top justify-start w-full h-full">
-      {/* Form Container (40% width) */}
-      <div className=" w-full md:w-2/5 h-full shadow-input mx-auto rounded-none  md:rounded-2xl md:p-8 dark:bg-black">
-      <h2 className="text-2xl md:text-3xl  font-medium font-heading text-foreground align-top">
-        Let's Connect
-      </h2>
-      <div className="bg-white w-[40px] h-1  rounded-sm mb-12"></div>
+  return (
+    <AnimationContainer delay={0.1}>
+      <MaxWidthWrapper className="size-full py-10 flex items-center">
+        <div className="flex align-top justify-start w-full h-full">
+          <div className="w-full md:w-2/5 h-full shadow-input mx-auto rounded-none md:rounded-2xl md:p-8 dark:bg-black">
+            <h2 className="text-2xl md:text-3xl font-medium font-heading text-foreground">
+              Let's Connect
+            </h2>
+            <div className="bg-white w-[40px] h-1 rounded-sm mb-12"></div>
 
-      <form className="my-8" onSubmit={handleSubmit}>
-          <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
-            <LabelInputContainer>
-              <Label htmlFor="firstname">First name</Label>
-              <Input id="firstname" placeholder="Tyler" type="text" />
-            </LabelInputContainer>
-            <LabelInputContainer>
-              <Label htmlFor="lastname">Last name</Label>
-              <Input id="lastname" placeholder="Durden" type="text" />
-            </LabelInputContainer>
+            <form className="my-8" onSubmit={handleSubmit}>
+              <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
+                <LabelInputContainer>
+                  <Label htmlFor="firstname">First name</Label>
+                  <Input id="firstname" value={formData.firstname} onChange={handleChange} />
+                </LabelInputContainer>
+                <LabelInputContainer>
+                  <Label htmlFor="lastname">Last name</Label>
+                  <Input id="lastname" value={formData.lastname} onChange={handleChange} />
+                </LabelInputContainer>
+              </div>
+              <LabelInputContainer className="mb-4">
+                <Label htmlFor="email">Email Address</Label>
+                <Input id="email" value={formData.email} onChange={handleChange} />
+              </LabelInputContainer>
+              <LabelInputContainer className="mb-4">
+                <Label htmlFor="number">Mobile Number</Label>
+                <Input id="number" value={formData.number} onChange={handleChange} />
+              </LabelInputContainer>
+              <LabelInputContainer className="mb-4">
+                <Label htmlFor="message">Tell Us How Can I Help You?</Label>
+                <Textarea id="message" value={formData.message} onChange={handleChange} rows={4} />
+              </LabelInputContainer>
+              <button type="submit" className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900">
+                Submit &rarr;
+                <BottomGradient />
+              </button>
+            </form>
           </div>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">Email Address</Label>
-            <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
-          </LabelInputContainer>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="number">Mobile Number</Label>
-            <Input id="number" placeholder="+91 - 9111182311" type="number" />
-          </LabelInputContainer>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="number">Tell Us How Can I help You?</Label>
-            <Textarea id="text" placeholder="Write about your Idea. Will Call You Soon As Per Your Requriment" type="text" rows="4"  />
-          </LabelInputContainer>
-          <button
-            className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
-            type="submit"
-          >
-            Submit &rarr;
-            <BottomGradient />
-          </button>
-      </form>
-      </div>
 
-      {/* World Container (60% width) */}
-      <div className="w-full md:w-3/5 h-full center shadow-input mx-auto rounded-none  md:rounded-2xl md:p-8 dark:bg-black">
-      <div>
-        
-        <span> we believe that our success is measured by the success of our clients. We take pride in seeing our clients businesses grow and thrive, and we are honoured to have playeda role in their success. If you're interested in working with Quantechbit, we'd love to hear from you.</span>
-    <div className="h-4"></div>
-     <div className="flex items-center">
-    <div className="flex items-start gap-2"> <PhoneCall />  <span> +91-9111182311</span></div>
-    <div className="w-4"></div>
-   <div className="flex items-start gap-2"> <Mail /> <span> support@quantechbit.com</span></div>
-     </div>
-      </div>
-        {/* <div className="absolute w-full  bottom-0 inset-x-0 h-[400px] bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" /> */}
-        <div className="w-full h-[400px] top-0 z-10">
-          <World  data={sampleArcs} globeConfig={globeConfig}/>
+          <div className="w-full md:w-3/5 h-full center shadow-input mx-auto rounded-none md:rounded-2xl md:p-8 dark:bg-black">
+            <div>
+              <span>
+                We believe that our success is measured by the success of our clients...
+              </span>
+              <div className="h-4"></div>
+              <div className="flex items-center">
+                <div className="flex items-start gap-2">
+                  <PhoneCall /> <span> +91-9111182311</span>
+                </div>
+                <div className="w-4"></div>
+                <div className="flex items-start gap-2">
+                  <Mail /> <span> support@quantechbit.com</span>
+                </div>
+              </div>
+            </div>
+            <div className="w-full h-[400px] top-0 z-10">
+              <World data={sampleArcs} globeConfig={globeConfig} />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </MaxWidthWrapper>
-</AnimationContainer>
-
-  
-    
+      </MaxWidthWrapper>
+    </AnimationContainer>
   );
 }
+
 
 const BottomGradient = () => {
   return (
