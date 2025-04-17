@@ -38,11 +38,11 @@ export const ParallaxScroll = ({ children, className }: ParallaxScrollProps) => 
     <div
       ref={containerRef}
       className={cn(
-        "h-[40rem] w-full overflow-y-auto scrollbar-hide",
+        "h-screen w-full overflow-y-auto scrollbar-hide",
         className
       )}
     >
-      <div className="max-w-5xl mx-auto gap-1 py-10 px-5">
+      <div className="mx-auto py-10 px-5">
         {children.map((child, idx) => {
           const { axis, transform } = transforms[idx];
 

@@ -4,41 +4,44 @@ import { BorderBeam } from "@/components/ui/border-beam";
 import { LampContainer } from "@/components/ui/lamp";
 import AnimationContainer2 from "@/components/global/animation-container2";
 import { ParallaxScroll } from "@/components/ui/Parallex-scroll";
-import { FunctionComponent } from "react";
 import Skills from "@/components/Skills";
 import { FeaturesSectionDemo } from "@/components/Feature_Section_One";
+import { FunctionComponent } from "react";
+
 // import { motion } from "framer-motion";
 
 
 
 
 export default function Feturesection() {
-
   return (
-    <AnimationContainer2 delay={0.4}
-      className="relative self-center pt-16 pb-33 md:py-30 px-12 bg-transparent mx-auto"
-      mywidth="100%">
-      <div className="relative">
-        {/* Background Gradient Layer */}
-        <div className="absolute md:top-[3%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
+    <AnimationContainer2
+      delay={0}
+      className="relative h-screen w-screen self-center pt-0 pb-10 md:py-30 px-1 bg-transparent mx-auto"
+      mywidth="100%"
+    >
 
-        {/* Main Content Box */}
-        <div className="-m-2 rounded-xl p-2 ring-1 ring-inset ring-foreground/20 lg:-m-4 lg:rounded-2xl backdrop-blur-3xl relative z-10">
-          <BorderBeam size={250} duration={12} delay={9} />
+      {/* Background Gradient Layer */}
+      <div className="absolute md:top-[3%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
 
-          <ParallaxScroll className="bg-transparent rounded-2xl shadow-md ">
-            {[<Skills key ={0}/>, <FeatureOne key={1}/> ,<FeaturesSectionDemo key={3}/> ]}
-          </ParallaxScroll>
+      {/* Main Content Box */}
+      <div className="-m-2 rounded-l p-1 ring-1 ring-inset ring-foreground/20 lg:-m-4 lg:rounded-2xl backdrop-blur-3xl relative z-10">
+        {/* <BorderBeam size={250} duration={15} delay={11} /> */}
+        <ParallaxScroll className="bg-transparent shadow-md h-screen w-screen">
+          {[<FeaturesSectionDemo key={1} />,
+          <Skills key={2} />, 
+          <FeatureOne key={3} />,]}
+        </ParallaxScroll>
 
-
-          {/* Gradient Overlays */}
-          <div className="absolute -bottom-4 inset-x-0 w-full h-1/2 bg-gradient-to-t from-background z-40"></div>
-          <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div>
-        </div>
+        {/* Gradient Overlays */}
+        {/* <div className="absolute -bottom-4 inset-x-0 w-full h-1/2 bg-gradient-to-t from-background z-40"></div>
+          <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div> */}
       </div>
+
     </AnimationContainer2>
   );
 }
+
 const images = [
   "https://images.icon-icons.com/2107/PNG/96/file_type_flutter_icon_130599.png",
   "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
@@ -73,25 +76,23 @@ const images = [
 ];
 
 
-interface FeatureOneProps {
-  
-}
- 
-const FeatureOne: FunctionComponent<FeatureOneProps> = () => {
-  return ( 
- <div  className="w-[100%]">
-                <h2 className="text-center lg:text-center text-3xl md:text-5xl !leading-[1.1] font-medium font-heading text-foreground mt-6">
-                  Technologies We Live
-                </h2>
-                <LampContainer className="h-100">
-                  <div className="absolute left-1/2 mt-40 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center">
-                    {/* <MagicBadge title="Technologia" /> */}
+type FeatureOneProps = object
 
-                    <div className="flex mt-4 size-full max-w-lg items-center justify-center overflow-hidden">
-                      <IconCloud images={images} />
-                    </div>
-                  </div>
-                </LampContainer>
-              </div>
-);
+const FeatureOne: FunctionComponent<FeatureOneProps> = () => {
+  return (
+    <div className="w-[100%]">
+      <h2 className="text-center lg:text-center text-3xl md:text-5xl !leading-[1.1] font-medium font-heading text-foreground mt-6">
+        Technologies We Live
+      </h2>
+      <LampContainer className="h-100">
+        <div className="absolute left-1/2 mt-40 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center">
+          {/* <MagicBadge title="Technologia" /> */}
+
+          <div className="flex mt-4 size-full max-w-lg items-center justify-center overflow-hidden">
+            <IconCloud images={images} />
+          </div>
+        </div>
+      </LampContainer>
+    </div>
+  );
 }

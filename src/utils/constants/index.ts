@@ -1,4 +1,4 @@
-export const Skill_data = [
+export const Web_Skill_data = [
     {
       skill_name: "Html 5",
       Image: "/image/html.png",
@@ -35,12 +35,12 @@ export const Skill_data = [
       width: 80,
       height: 80,
     },
-    {
-      skill_name: "React Query",
-      Image: "/image/reactquery.png",
-      width: 80,
-      height: 80,
-    },
+    // {
+    //   skill_name: "React Query",
+    //   Image: "/image/reactquery.png",
+    //   width: 80,
+    //   height: 80,
+    // },
     {
       skill_name: "Type Script",
       Image: "/image/ts.png",
@@ -97,67 +97,67 @@ export const Skill_data = [
   
   
   
-  export const Frontend_skill = [
+  export const App_skill = [
     {
-      skill_name: "Html 5",
-      Image: "/image/html.png",
+      skill_name: "Java",
+      Image: "/image/java_icon.webp",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Css",
-      Image: "/image/css.png",
+      skill_name: "Andriod",
+      Image: "/image/Android_Studio.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Java Script",
-      Image: "/image/js.png",
+      skill_name: "Ios",
+      Image: "/image/Ios.webp",
       width: 65,
       height: 65,
     },
     {
-      skill_name: "Tailwind Css",
-      Image: "/image/tailwind.png",
+      skill_name: "flutter",
+      Image: "/image/flutter.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Material UI",
-      Image: "/image/mui.png",
+      skill_name: "Firebase",
+      Image: "/image/firebase.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "React",
-      Image: "/image/react.png",
+      skill_name: "Kotlin",
+      Image: "/image/kotlin.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Redux",
-      Image: "/image/redux.png",
+      skill_name: "mongo",
+      Image: "/image/mongo.webp",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "React Query",
-      Image: "/image/reactquery.png",
+      skill_name: "Spring_boot",
+      Image: "/image/Spring_boot.webp",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Type Script",
-      Image: "/image/ts.png",
+      skill_name: "Gradle maven",
+      Image: "/image/Gradle-vs-Maven.png",
       width: 80,
-      height: 80,
+      height: 120,
     },
-    {
-      skill_name: "Next js 13",
-      Image: "/image/next.png",
-      width: 80,
-      height: 80,
-    },
+    // {
+    //   skill_name: "Next js 13",
+    //   Image: "/image/next.png",
+    //   width: 80,
+    //   height: 80,
+    // },
   ];
   
   export const Backend_skill = [
