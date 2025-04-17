@@ -1,5 +1,5 @@
 import {
-  Backend_skill,
+  All_Skill,
   App_skill,
   Full_stack,
   Other_skill,
@@ -53,7 +53,7 @@ const Skills = () => {
         ))}
       </div>
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
-        {Backend_skill.map((image, index) => (
+        {All_Skill.map((image, index) => (
           <SkillDataProvider
             key={index}
             src={image.Image}
@@ -95,7 +95,7 @@ const Skills = () => {
             loop
             muted
             autoPlay
-            src="/cards-video.webm"
+            src="/image/cards-video.webm"
           />
         </div>
       </div>

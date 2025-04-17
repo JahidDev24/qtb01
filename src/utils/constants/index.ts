@@ -160,34 +160,34 @@ export const Web_Skill_data = [
     // },
   ];
   
-  export const Backend_skill = [
+  export const All_Skill = [
     {
-      skill_name: "Node js",
-      Image: "/image/node-js.png",
+      skill_name: "Azure",
+      Image: "/image/azure.png",
+      width: 80,
+      height: 100,
+    },
+    {
+      skill_name: "AWS-EC2",
+      Image: "/image/aws.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Express js",
-      Image: "/image/express.png",
-      width: 80,
-      height: 80,
-    },
-    {
-      skill_name: "Mongo db",
-      Image: "/image/mongodb.png",
+      skill_name: "GDC",
+      Image: "/image/gdc.png",
       width: 40,
       height: 40,
     },
     {
-      skill_name: "Fire base",
-      Image: "/image/Firebase.png",
+      skill_name: "Github",
+      Image: "/image/github.png",
       width: 55,
       height: 55,
     },
     {
-      skill_name: "Postger SQL",
-      Image: "/image/postger.png",
+      skill_name: "jenkins",
+      Image: "/image/jenkins.png",
       width: 70,
       height: 70,
     },
@@ -213,8 +213,8 @@ export const Web_Skill_data = [
   
   export const Full_stack = [
     {
-      skill_name: "React Native",
-      Image: "/image/ReactNative .png",
+      skill_name: "Python",
+      Image: "/image/python.jpeg",
       width: 70,
       height: 70,
     },
@@ -237,7 +237,12 @@ export const Web_Skill_data = [
       width: 50,
       height: 50,
     },
-  
+    {
+      skill_name: "crypto",
+      Image: "/image/cryptography.jpg",
+      width: 50,
+      height: 50,
+    },
   ];
   
   
