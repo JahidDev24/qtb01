@@ -152,12 +152,12 @@ export const Web_Skill_data = [
       width: 80,
       height: 120,
     },
-    // {
-    //   skill_name: "Next js 13",
-    //   Image: "/image/next.png",
-    //   width: 80,
-    //   height: 80,
-    // },
+    {
+      skill_name: "TensorFlow",
+      Image: "/image/TensorFlow.png",
+      width: 80,
+      height: 80,
+    },
   ];
   
   export const All_Skill = [

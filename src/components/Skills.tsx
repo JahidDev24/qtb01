@@ -7,20 +7,17 @@ import {
 } from "../utils/constants/index";
 import React from "react";
 import SkillDataProvider from "./sub/SkillDataProvider";
-import SkillText from "./sub/SkillText";
-import { WavyBackground } from "./ui/wavy-background";
 import AnimationContainer from "./global/animation-container";
 
 const Skills = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center justify-center gap-2 h-full relative overflow-hidden pb-80 py-2"
+      className="flex flex-col items-center justify-center gap-1 h-full relative overflow-hidden pb-20 py-2"
       style={{ transform: "scale(0.9" }}
     >
-        <AnimationContainer className="bg-transparent">
-
-          <h1 className="text-center lg:text-center text-6xl md:text-3xl !leading-[1.1] font-bold font-mono font-heading text-foreground mt-2 px-2">
+        <AnimationContainer className="bg-transparent pt-2">
+          <h1 className="text-center lg:text-center text-6xl md:text-3xl !leading-[1.1] font-bold font-heading text-foreground mt-2 px-2">
             {/* From Strategy to Support — We've Got IT Covered */}
             Technologies We Live
           </h1>
@@ -28,7 +25,6 @@ const Skills = () => {
             Covered Gant IT Tech powers your digital evolution with cutting-edge solutions and intelligent infrastructure. From <br /> strategic innovation to real-time support, we engineer IT that scales with the future.
           </p>
         </AnimationContainer>
-
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
         {Web_Skill_data.map((image, index) => (
           <SkillDataProvider
@@ -87,7 +83,7 @@ const Skills = () => {
       </div>
 
       <div className="w-full h-full absolute">
-        <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
+        <div className="w-full h-full z-[-10] opacity-20 absolute flex items-center justify-center bg-cover">
           <video
             className="w-full h-auto"
             preload="false"

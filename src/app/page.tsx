@@ -1,6 +1,6 @@
 import AboutSection from "@/sections/AboutSection";
 import { ContactForm } from "@/sections/ContactForm";
-import Feturesection from "@/sections/Feature_section";
+import Feturesection, { Feturesectionnew } from "@/sections/Feature_section";
 import Hero from "@/sections/Hero";
 import { ProjectSection } from "@/sections/ProjectSection";
 // import Navbar from "@/components/Navigation/navbar";
@@ -16,12 +16,11 @@ export default function Home() {
          {/* <Navbar /> */}
       
         <Hero />
-        <Feturesection/>
-        <TapeSection />
+        <Feturesectionnew/>
+        {/* <TapeSection /> */}
         <ProjectSection/>    
         <Testomorieal/>
         <ContactForm/>
-        <AboutSection/>
       </div>
        
     </main>);

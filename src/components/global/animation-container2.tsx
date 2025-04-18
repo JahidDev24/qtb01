@@ -15,7 +15,7 @@ const AnimationContainer2 = ({ children, className, reverse, delay , mywidth }: 
         <motion.div
         className={className}
   initial={{ opacity: 0, y: reverse ? -20 : 20, width: "75%" }}
-  whileInView={{ opacity: 1, y: 0, width: mywidth }}
+  whileInView={{ opacity: 1, y: 0, width: "95%" }}
   viewport={{ once: false }}
   transition={{
     duration: 0.8,

@@ -13,28 +13,28 @@ import {
 } from "@tabler/icons-react";
 import AnimationContainer from "./global/animation-container";
 
-export function FeaturesSectionDemo() {
+export function FeaturesService() {
   const features = [
     {
-      title: "Smart Mobile App Development",
+      title: "Mobile App Development",
       description:
         "We build high-performance apps tailored for Android and iOS, optimized for usability, speed, and scalability.",
       icon: <IconBrandAndroid />,
     },
     {
-      title: "Responsive Web Development",
+      title: "Web Development",
       description:
         "Crafting modern, scalable websites and platforms with optimized performance across all devices.",
       icon: <IconWorldWww />,
     },
     {
-      title: "Scalable System Architecture",
+      title: "System Architecture",
       description:
         "We design resilient systems built to handle growth, integrate seamlessly, and deliver long-term performance.",
       icon: <IconTopologyStar3 />,
     },
     {
-      title: "User-Centered UI/UX Design",
+      title: "UI/UX Design",
       description:
         "Creating intuitive, beautiful interfaces that drive engagement and deliver seamless user experiences.",
       icon: <IconLayoutDashboard />,
@@ -79,7 +79,7 @@ export function FeaturesSectionDemo() {
   
   
   return (
-    <div className="flex flex-col justify-center items-center text-center pb-6 px-10">
+    <div className="flex flex-col justify-center items-center text-center pb-6 px-10 pt-10">
      <AnimationContainer>
      <h1 className="text-center lg:text-center text-6xl md:text-3xl !leading-[1.1] font-bold font-mono font-heading text-foreground mt-2 px-2">
        {/* From Strategy to Support — We've Got IT Covered */}
